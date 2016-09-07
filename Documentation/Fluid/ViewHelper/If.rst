@@ -76,7 +76,30 @@ Simple examples
      <p>String comparisons only work in array syntax before v6.2.</p>
    </f:if>
  </f:alias>
+since TYPO3 8.0
+---------------
 
+::
+
+ ## else if condition
+ <f:if condition="{variableOne}">
+   <f:then>Do this</f:then>
+   <f:else if="{variableTwo}">
+     Do this instead if variable two evals true
+  </f:else>
+  <f:else if="{variableThree}">
+     Or do this if variable three evals true
+  </f:else>
+  <f:else>
+     Or do this if nothing above is true
+  </f:else>
+ </f:if>
+ 
+ ## complex conditions
+ <f:if condition="({variableOne} && {variableTwo}) || {variableThree} || {variableFour}">
+    Done if both variable one and two evaluate to true,
+    or if either variable three or four do.
+ </f:if>
 
 If there are no `f:then` or `f:else` ViewHelpers in use, the content between the `f:if` ViewHelpers will only be output if 
 the comparison returns a positive result. If you need to use the full if-then-else construct, then you'll have to 
